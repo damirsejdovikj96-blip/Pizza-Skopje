@@ -11,7 +11,6 @@
   <!-- Header -->
   <header class="bg-gradient-to-r from-amber-900 to-amber-950 text-white p-5 text-center shadow-xl sticky top-0 z-20 border-b border-amber-800">
     <h1 class="text-2xl font-black tracking-wider uppercase">Aroma Bistro & Bar</h1>
-    <p id="table-info" class="text-xs font-bold text-amber-300 mt-1 uppercase tracking-widest bg-black bg-inline px-3 py-1 rounded-full inline-block">Маса: Се вчитува...</p>
   </header>
 
   <!-- Main Content -->
@@ -122,7 +121,7 @@
 
   </main>
 
-  <!-- Bottom Floating Sticky Cart Bar (sa sakupljanjem cene) -->
+  <!-- Bottom Floating Sticky Cart Bar -->
   <div class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-gray-200 p-4 flex justify-between items-center shadow-2xl max-w-md mx-auto z-30 rounded-t-3xl">
     <div>
       <p class="text-[10px] text-gray-400 uppercase font-extrabold tracking-wider">Избрани артикли (<span id="cart-count">0</span>)</p>
@@ -163,7 +162,6 @@
 
     const urlParams = new URLSearchParams(window.location.search);
     const tableNumber = urlParams.get('sto') || 'Непознато';
-    document.getElementById('table-info').innerText = "Маса: " + tableNumber;
 
     let cart = [];
 
