@@ -1,0 +1,31 @@
+        return;
+      }
+
+      const total = cart.reduce((sum, i) => sum + i.price, 0);
+      const itemsList = cart.map(i => i.item).join(", ");
+
+      const payload = {
+        table: tableNumber,
+        items: itemsList,
+        total: total
+      };
+
+      fetch(WEB_APP_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(() => {
+        alert("Vaša narudžbina je uspešno poslata!");
+        cart = [];
+        updateCartUI();
+      })
+      .catch(error => {
+        alert("Greška prilikom slanja. Pokušajte ponovo.");
+        console.error(error);
+      });
+    }
+  </script>
+</body>
+</html>
