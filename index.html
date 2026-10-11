@@ -1,3 +1,108 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aroma Bistro & Bar - Мени</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800 pb-24">
+
+  <!-- Zaglavlje -->
+  <header class="bg-amber-600 text-white p-4 shadow-md sticky top-0 z-10 text-center">
+    <h1 class="text-2xl font-bold">Aroma Bistro & Bar</h1>
+    <p id="table-info" class="text-xs bg-amber-700 inline-block px-2 py-1 rounded mt-1">Маса: ...</p>
+  </header>
+
+  <!-- Meni Artikli -->
+  <main class="p-4 max-w-md mx-auto space-y-6">
+    
+    <!-- Kafa & Napici -->
+    <section class="space-y-3">
+      <h2 class="text-lg font-bold text-amber-700 border-b pb-1">Кафе и пијалоци</h2>
+      
+      <div class="bg-white p-3 rounded-lg shadow-sm flex justify-between items-center">
+        <div>
+          <h3 class="font-semibold">Еспресо</h3>
+          <p class="text-sm text-gray-500">80 ДЕН</p>
+        </div>
+        <button onclick="addToCart('Еспресо', 80)" class="bg-amber-600 text-white px-3 py-1 rounded-md text-sm font-semibold active:scale-95 transition">+ Додај</button>
+      </div>
+
+      <div class="bg-white p-3 rounded-lg shadow-sm flex justify-between items-center">
+        <div>
+          <h3 class="font-semibold">Макијато</h3>
+          <p class="text-sm text-gray-500">100 ДЕН</p>
+        </div>
+        <button onclick="addToCart('Макијато', 100)" class="bg-amber-600 text-white px-3 py-1 rounded-md text-sm font-semibold active:scale-95 transition">+ Додај</button>
+      </div>
+
+      <div class="bg-white p-3 rounded-lg shadow-sm flex justify-between items-center">
+        <div>
+          <h3 class="font-semibold">Капучино</h3>
+          <p class="text-sm text-gray-500">120 ДЕН</p>
+        </div>
+        <button onclick="addToCart('Капучино', 120)" class="bg-amber-600 text-white px-3 py-1 rounded-md text-sm font-semibold active:scale-95 transition">+ Додај</button>
+      </div>
+    </section>
+
+    <!-- Sokovi & Osveženja -->
+    <section class="space-y-3">
+      <h2 class="text-lg font-bold text-amber-700 border-b pb-1">Сокови i освежување</h2>
+
+      <div class="bg-white p-3 rounded-lg shadow-sm flex justify-between items-center">
+        <div>
+          <h3 class="font-semibold">Кока-Кола</h3>
+          <p class="text-sm text-gray-500">120 ДЕН</p>
+        </div>
+        <button onclick="addToCart('Кока-Кола', 120)" class="bg-amber-600 text-white px-3 py-1 rounded-md text-sm font-semibold active:scale-95 transition">+ Додај</button>
+      </div>
+
+      <div class="bg-white p-3 rounded-lg shadow-sm flex justify-between items-center">
+        <div>
+          <h3 class="font-semibold">Кисела Вода</h3>
+          <p class="text-sm text-gray-500">90 ДЕН</p>
+        </div>
+        <button onclick="addToCart('Кисела Вода', 90)" class="bg-amber-600 text-white px-3 py-1 rounded-md text-sm font-semibold active:scale-95 transition">+ Додај</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Traka za narudžbinu na dnu -->
+  <div class="fixed bottom-0 left-0 right-0 bg-white border-t p-4 shadow-lg flex justify-between items-center max-w-md mx-auto">
+    <div>
+      <p class="text-xs text-gray-500">Вкупно:</p>
+      <p id="total-price" class="font-bold text-lg text-amber-700">0 ДЕН</p>
+    </div>
+    <button onclick="sendOrder()" class="bg-green-600 text-white px-6 py-2 rounded-lg font-bold active:scale-95 transition">Нарачај 🛒</button>
+  </div>
+
+  <script>
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxvkHWbPuwruO1hjEctjDywc_FZ784cOyQjfiZtj_cHk-H2y9VEZboyZkK61pzbKqQTtg/exec";
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const tableNumber = urlParams.get('sto') || 'Непознато';
+    document.getElementById('table-info').innerText = "Маса: " + tableNumber;
+
+    let cart = [];
+
+    function addToCart(item, price) {
+      cart.push({ item, price });
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const total = cart.reduce((sum, i) => sum + i.price, 0);
+      document.getElementById('total-price').innerText = total + " ДЕН";
+    }
+
+    function sendOrder() {
+      if (cart.length === 0) {
+        alert("Вашата кошничка е празна!");
         return;
       }
 
@@ -17,12 +122,12 @@
         body: JSON.stringify(payload)
       })
       .then(() => {
-        alert("Vaša narudžbina je uspešno poslata!");
+        alert("Вашата нарачка е успешно испратена!");
         cart = [];
         updateCartUI();
       })
       .catch(error => {
-        alert("Greška prilikom slanja. Pokušajte ponovo.");
+        alert("Грешка при испраќање. Обидете се повторно.");
         console.error(error);
       });
     }
