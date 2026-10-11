@@ -252,28 +252,39 @@
       const total = cart.reduce((sum, item) => sum + item.price, 0);
       const itemsList = cart.map(i => i.item).join(", ");
 
-      const payload = {
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = WEB_APP_URL;
+      form.target = 'hidden_frame';
+
+      const payloadInput = document.createElement('input');
+      payloadInput.type = 'hidden';
+      payloadInput.name = 'postData';
+      payloadInput.value = JSON.stringify({
         table: tableNumber,
         items: itemsList,
         total: total + " МКД"
-      };
-
-      fetch(WEB_APP_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      })
-      .then(() => {
-        alert("Вашата нарачка е успешно испратена!");
-        cart = [];
-        updateCartUI();
-        closeCartModal();
-      })
-      .catch(error => {
-        alert("Грешка при испраќање.");
-        console.error(error);
       });
+
+      form.appendChild(payloadInput);
+
+      let iframe = document.getElementById('hidden_frame');
+      if (!iframe) {
+        iframe = document.createElement('iframe');
+        iframe.name = 'hidden_frame';
+        iframe.id = 'hidden_frame';
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+      }
+
+      document.body.appendChild(form);
+      form.submit();
+      document.body.removeChild(form);
+
+      alert("Вашата нарачка е успешно испратена!");
+      cart = [];
+      updateCartUI();
+      closeCartModal();
     }
   </script>
 </body>
