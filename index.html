@@ -121,15 +121,22 @@
 
   </main>
 
-  <!-- Bottom Floating Sticky Cart Bar -->
+  <!-- Bottom Floating Sticky Bar -->
   <div class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-gray-200 p-4 flex justify-between items-center shadow-2xl max-w-md mx-auto z-30 rounded-t-3xl">
     <div>
       <p class="text-[10px] text-gray-400 uppercase font-extrabold tracking-wider">Вкупно (<span id="cart-count">0</span> артикли)</p>
       <span id="bottom-total-price" class="font-black text-2xl text-amber-900">0 МКД</span>
     </div>
-    <button onclick="openCartModal()" class="bg-gradient-to-r from-emerald-600 to-emerald-700 text-white px-6 py-3.5 rounded-2xl font-black shadow-xl hover:shadow-emerald-600/30 active:scale-95 transition flex items-center gap-2 text-sm tracking-wide">
-      🛒 Кошничка
-    </button>
+    <div class="flex items-center gap-2">
+      <!-- Odvoeno malo kopce za kosnickata -->
+      <button onclick="openCartModal()" class="bg-gray-100 hover:bg-gray-200 text-gray-800 w-12 h-12 rounded-2xl flex items-center justify-center text-xl font-bold shadow active:scale-95 transition border border-gray-200">
+        🛒
+      </button>
+      <!-- Zeleno glavno kopce za Naracaj -->
+      <button onclick="sendOrderDirectly()" class="bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white px-6 py-3.5 rounded-2xl font-black shadow-xl active:scale-95 transition text-sm tracking-wide">
+        Нарачај
+      </button>
+    </div>
   </div>
 
   <!-- Cart Modal -->
@@ -150,7 +157,7 @@
         <span id="modal-total-price" class="text-2xl font-black text-amber-900">0 МКД</span>
       </div>
 
-      <button onclick="sendOrder()" class="w-full bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-black py-4 rounded-2xl shadow-xl hover:from-emerald-700 hover:to-emerald-800 active:scale-95 transition text-lg tracking-wide">
+      <button onclick="sendOrderDirectly()" class="w-full bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-black py-4 rounded-2xl shadow-xl hover:from-emerald-700 hover:to-emerald-800 active:scale-95 transition text-lg tracking-wide">
         НАРАЧАЈ СЕГА 🚀
       </button>
     </div>
@@ -236,7 +243,7 @@
       if (modalTotalPrice) modalTotalPrice.innerText = total + " МКД";
     }
 
-    function sendOrder() {
+    function sendOrderDirectly() {
       if (cart.length === 0) {
         alert("Вашата кошничка е празна!");
         return;
