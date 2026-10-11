@@ -17,29 +17,33 @@
   <!-- Main Content -->
   <main class="max-w-md mx-auto p-4 space-y-6">
     
-    <!-- Kategorija 1: Pizze (Novo & Atraktivno) -->
-    <section class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 transition-all">
+    <!-- Kategorija 1: Pizza na parce -->
+    <section class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
       <div class="h-40 bg-cover bg-center relative" style="background-image: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80');">
         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent flex items-end p-5">
-          <h2 class="text-2xl font-extrabold text-white flex items-center gap-2">🍕 Италијански Пици</h2>
+          <h2 class="text-2xl font-extrabold text-white">🍕 Пица на парче</h2>
         </div>
       </div>
       <div class="p-5 space-y-4">
         <div class="flex justify-between items-center border-b border-gray-100 pb-3">
           <div>
-            <p class="font-bold text-gray-900 text-base">Капричиоза</p>
-            <p class="text-xs text-gray-400">Шунка, кашкавал, печурки, пелати</p>
-            <p class="text-sm font-black text-amber-800 mt-1">350 МКД</p>
+            <p class="font-bold text-gray-900 text-base">Капричиоза (парче)</p>
+            <p class="text-sm font-black text-amber-800 mt-1">100 МКД</p>
           </div>
-          <button onclick="addToCart('Пица Капричиоза', 350)" class="bg-amber-800 text-white font-bold px-4 py-2.5 rounded-2xl shadow-md hover:bg-amber-900 active:scale-95 transition">+ Додај</button>
+          <div class="flex items-center gap-2">
+            <button onclick="removeFromCartByName('Капричиоза (парче)')" class="bg-red-500 hover:bg-red-600 text-white font-bold px-3 py-2.5 rounded-xl shadow transition active:scale-95 text-sm">✕</button>
+            <button onclick="addToCart('Капричиоза (парче)', 100)" class="bg-amber-800 text-white font-bold px-4 py-2.5 rounded-xl shadow hover:bg-amber-900 active:scale-95 transition">+ Додај</button>
+          </div>
         </div>
         <div class="flex justify-between items-center">
           <div>
-            <p class="font-bold text-gray-900 text-base">Маргарита</p>
-            <p class="text-xs text-gray-400">Доматен сос, моцарела, оригано</p>
-            <p class="text-sm font-black text-amber-800 mt-1">290 МКД</p>
+            <p class="font-bold text-gray-900 text-base">Пеперони (парче)</p>
+            <p class="text-sm font-black text-amber-800 mt-1">120 МКД</p>
           </div>
-          <button onclick="addToCart('Пица Маргарита', 290)" class="bg-amber-800 text-white font-bold px-4 py-2.5 rounded-2xl shadow-md hover:bg-amber-900 active:scale-95 transition">+ Додај</button>
+          <div class="flex items-center gap-2">
+            <button onclick="removeFromCartByName('Пеперони (парче)')" class="bg-red-500 hover:bg-red-600 text-white font-bold px-3 py-2.5 rounded-xl shadow transition active:scale-95 text-sm">✕</button>
+            <button onclick="addToCart('Пеперони (парче)', 120)" class="bg-amber-800 text-white font-bold px-4 py-2.5 rounded-xl shadow hover:bg-amber-900 active:scale-95 transition">+ Додај</button>
+          </div>
         </div>
       </div>
     </section>
@@ -57,21 +61,30 @@
             <p class="font-bold text-gray-900 text-base">Еспресо</p>
             <p class="text-sm font-black text-amber-800 mt-1">80 МКД</p>
           </div>
-          <button onclick="addToCart('Еспресо', 80)" class="bg-amber-800 text-white font-bold px-4 py-2.5 rounded-2xl shadow-md hover:bg-amber-900 active:scale-95 transition">+ Додај</button>
+          <div class="flex items-center gap-2">
+            <button onclick="removeFromCartByName('Еспресо')" class="bg-red-500 hover:bg-red-600 text-white font-bold px-3 py-2.5 rounded-xl shadow transition active:scale-95 text-sm">✕</button>
+            <button onclick="addToCart('Еспресо', 80)" class="bg-amber-800 text-white font-bold px-4 py-2.5 rounded-xl shadow hover:bg-amber-900 active:scale-95 transition">+ Додај</button>
+          </div>
         </div>
         <div class="flex justify-between items-center border-b border-gray-100 pb-3">
           <div>
             <p class="font-bold text-gray-900 text-base">Капучино</p>
             <p class="text-sm font-black text-amber-800 mt-1">100 МКД</p>
           </div>
-          <button onclick="addToCart('Капучино', 100)" class="bg-amber-800 text-white font-bold px-4 py-2.5 rounded-2xl shadow-md hover:bg-amber-900 active:scale-95 transition">+ Додај</button>
+          <div class="flex items-center gap-2">
+            <button onclick="removeFromCartByName('Капучино')" class="bg-red-500 hover:bg-red-600 text-white font-bold px-3 py-2.5 rounded-xl shadow transition active:scale-95 text-sm">✕</button>
+            <button onclick="addToCart('Капучино', 100)" class="bg-amber-800 text-white font-bold px-4 py-2.5 rounded-xl shadow hover:bg-amber-900 active:scale-95 transition">+ Додај</button>
+          </div>
         </div>
         <div class="flex justify-between items-center">
           <div>
             <p class="font-bold text-gray-900 text-base">Макијато</p>
             <p class="text-sm font-black text-amber-800 mt-1">90 МКД</p>
           </div>
-          <button onclick="addToCart('Макијато', 90)" class="bg-amber-800 text-white font-bold px-4 py-2.5 rounded-2xl shadow-md hover:bg-amber-900 active:scale-95 transition">+ Додај</button>
+          <div class="flex items-center gap-2">
+            <button onclick="removeFromCartByName('Макијато')" class="bg-red-500 hover:bg-red-600 text-white font-bold px-3 py-2.5 rounded-xl shadow transition active:scale-95 text-sm">✕</button>
+            <button onclick="addToCart('Макијато', 90)" class="bg-amber-800 text-white font-bold px-4 py-2.5 rounded-xl shadow hover:bg-amber-900 active:scale-95 transition">+ Додај</button>
+          </div>
         </div>
       </div>
     </section>
@@ -89,53 +102,34 @@
             <p class="font-bold text-gray-900 text-base">Газирана вода 0.25l</p>
             <p class="text-sm font-black text-amber-800 mt-1">70 МКД</p>
           </div>
-          <button onclick="addToCart('Газирана вода 0.25l', 70)" class="bg-amber-800 text-white font-bold px-4 py-2.5 rounded-2xl shadow-md hover:bg-amber-900 active:scale-95 transition">+ Додај</button>
+          <div class="flex items-center gap-2">
+            <button onclick="removeFromCartByName('Газирана вода 0.25l')" class="bg-red-500 hover:bg-red-600 text-white font-bold px-3 py-2.5 rounded-xl shadow transition active:scale-95 text-sm">✕</button>
+            <button onclick="addToCart('Газирана вода 0.25l', 70)" class="bg-amber-800 text-white font-bold px-4 py-2.5 rounded-xl shadow hover:bg-amber-900 active:scale-95 transition">+ Додај</button>
+          </div>
         </div>
         <div class="flex justify-between items-center">
           <div>
             <p class="font-bold text-gray-900 text-base">Coca-Cola 0.25l</p>
             <p class="text-sm font-black text-amber-800 mt-1">110 МКД</p>
           </div>
-          <button onclick="addToCart('Coca-Cola 0.25l', 110)" class="bg-amber-800 text-white font-bold px-4 py-2.5 rounded-2xl shadow-md hover:bg-amber-900 active:scale-95 transition">+ Додај</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Kategorija 4: Pivo & Alkohol -->
-    <section class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
-      <div class="h-36 bg-cover bg-center relative" style="background-image: url('https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=600&q=80');">
-        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent flex items-end p-5">
-          <h2 class="text-xl font-extrabold text-white">🍺 Пиво & Алкохол</h2>
-        </div>
-      </div>
-      <div class="p-5 space-y-4">
-        <div class="flex justify-between items-center border-b border-gray-100 pb-3">
-          <div>
-            <p class="font-bold text-gray-900 text-base">Скопско 0.33l</p>
-            <p class="text-sm font-black text-amber-800 mt-1">120 МКД</p>
+          <div class="flex items-center gap-2">
+            <button onclick="removeFromCartByName('Coca-Cola 0.25l')" class="bg-red-500 hover:bg-red-600 text-white font-bold px-3 py-2.5 rounded-xl shadow transition active:scale-95 text-sm">✕</button>
+            <button onclick="addToCart('Coca-Cola 0.25l', 110)" class="bg-amber-800 text-white font-bold px-4 py-2.5 rounded-xl shadow hover:bg-amber-900 active:scale-95 transition">+ Додај</button>
           </div>
-          <button onclick="addToCart('Скопско 0.33l', 120)" class="bg-amber-800 text-white font-bold px-4 py-2.5 rounded-2xl shadow-md hover:bg-amber-900 active:scale-95 transition">+ Додај</button>
-        </div>
-        <div class="flex justify-between items-center">
-          <div>
-            <p class="font-bold text-gray-900 text-base">Heineken 0.33l</p>
-            <p class="text-sm font-black text-amber-800 mt-1">160 МКД</p>
-          </div>
-          <button onclick="addToCart('Heineken 0.33l', 160)" class="bg-amber-800 text-white font-bold px-4 py-2.5 rounded-2xl shadow-md hover:bg-amber-900 active:scale-95 transition">+ Додај</button>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- Bottom Floating Sticky Cart Bar -->
+  <!-- Bottom Floating Sticky Cart Bar (sa sakupljanjem cene) -->
   <div class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-gray-200 p-4 flex justify-between items-center shadow-2xl max-w-md mx-auto z-30 rounded-t-3xl">
     <div>
-      <p class="text-[10px] text-gray-400 uppercase font-extrabold tracking-wider">Избрани артикли</p>
-      <span id="cart-count" class="font-black text-2xl text-amber-900">0</span>
+      <p class="text-[10px] text-gray-400 uppercase font-extrabold tracking-wider">Избрани артикли (<span id="cart-count">0</span>)</p>
+      <span id="bottom-total-price" class="font-black text-xl text-amber-900">0 МКД</span>
     </div>
-    <button onclick="openCartModal()" class="bg-gradient-to-r from-amber-800 to-amber-950 text-white px-7 py-3.5 rounded-2xl font-black shadow-xl hover:shadow-amber-900/30 active:scale-95 transition flex items-center gap-2">
-      🛒 Прегледај кошничка
+    <button onclick="openCartModal()" class="bg-gradient-to-r from-amber-800 to-amber-950 text-white px-6 py-3 rounded-2xl font-black shadow-xl hover:shadow-amber-900/30 active:scale-95 transition flex items-center gap-2 text-sm">
+      🛒 Кошничка
     </button>
   </div>
 
@@ -147,7 +141,7 @@
         <button onclick="closeCartModal()" class="text-gray-400 hover:text-gray-600 bg-gray-100 w-8 h-8 rounded-full flex items-center justify-center font-bold text-lg">✕</button>
       </div>
       
-      <!-- Lista artikala sa opcijom za brisanje (korpa) -->
+      <!-- Lista artikala -->
       <div id="cart-items" class="max-h-60 overflow-y-auto divide-y divide-gray-100">
         <!-- Dinamicki sadrzaj -->
       </div>
@@ -176,7 +170,14 @@
     function addToCart(item, price) {
       cart.push({ item, price });
       updateCartUI();
-      // Kratka animacija ili povratna informacija
+    }
+
+    function removeFromCartByName(itemName) {
+      const index = cart.findIndex(cartItem => cartItem.item === itemName);
+      if (index !== -1) {
+        cart.splice(index, 1);
+        updateCartUI();
+      }
     }
 
     function removeFromCart(index) {
@@ -187,7 +188,12 @@
 
     function updateCartUI() {
       const cartCount = document.getElementById('cart-count');
+      const bottomTotalPrice = document.getElementById('bottom-total-price');
+      
       if (cartCount) cartCount.innerText = cart.length;
+
+      let total = cart.reduce((sum, item) => sum + item.price, 0);
+      if (bottomTotalPrice) bottomTotalPrice.innerText = total + " МКД";
     }
 
     function openCartModal() {
